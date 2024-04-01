@@ -1,12 +1,9 @@
 extends TextureButton
 
 var tween
-
 var number
 
 signal tile_pressed
-signal slide_completed
-signal tween_completed
 
 # Update the number of the tile
 func set_text(new_number):
@@ -45,7 +42,7 @@ func slide_to(new_position, duration):
 	tween.tween_property(self, "global_position", new_position, duration)
 
 	# Connect the signal using connect_method() to handle the signal connection
-	emit_signal("slide_completed", number)
+	print("slide completed 1")
 
 # Hide / Show the number of the tile
 func set_number_visible(state):
@@ -54,7 +51,3 @@ func set_number_visible(state):
 # Tile is pressed
 func _on_Tile_pressed():
 	emit_signal("tile_pressed", number)
-
-# Tile has finished sliding
-func _on_Tween_tween_completed(_object, _key):
-	emit_signal("slide_completed", number)
