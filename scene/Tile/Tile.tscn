@@ -52,4 +52,3 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_62dh5")
 
 [connection signal="pressed" from="." to="." method="_on_Tile_pressed"]
-[connection signal="pressed" from="." to="." method="_on_pressed"]

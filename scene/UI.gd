@@ -30,6 +30,6 @@ func _on_mainmenu_pressed():
 
 func _on__pressed():
 	var newlevel = level1.instantiate()
-	$".".add_child(newlevel)
+	get_tree().get_root().add_child(newlevel)
 	$levelmenu.visible=false
 	pass # Replace with function body.
