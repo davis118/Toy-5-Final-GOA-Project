@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3 uid="uid://b3a8hkc4o3ulk"]
+
+[ext_resource type="Texture2D" uid="uid://dv13md0t5u60s" path="res://resources/empty.png" id="1_jiupv"]
+[ext_resource type="Texture2D" uid="uid://bypulcw5ak857" path="res://resources/red.png" id="2_2w145"]
+[ext_resource type="Texture2D" uid="uid://ca346t3danj18" path="res://resources/blue.png" id="3_sfeh7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fxpdu"]
+texture = ExtResource("1_jiupv")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wlgct"]
+texture = ExtResource("2_2w145")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xdhwk"]
+texture = ExtResource("3_sfeh7")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_maee5"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_fxpdu")
+sources/1 = SubResource("TileSetAtlasSource_wlgct")
+sources/2 = SubResource("TileSetAtlasSource_xdhwk")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(8, 8)
+tile_set = SubResource("TileSet_maee5")
+format = 2
+layer_0/tile_data = PackedInt32Array(65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 131086, 0, 0, 196622, 0, 0, 262158, 0, 0, 262157, 0, 0, 327693, 0, 0, 393229, 0, 0, 393228, 0, 0, 393227, 0, 0, 393226, 0, 0, 458762, 0, 0, 458761, 0, 0, 458760, 0, 0, 393224, 0, 0, 327688, 0, 0, 327687, 2, 0, 327686, 2, 0, 393221, 0, 0, 458757, 0, 0, 458756, 0, 0, 458755, 0, 0, 458754, 0, 0, 393218, 0, 0, 327682, 0, 0, 262146, 0, 0, 196609, 0, 0, 196608, 0, 0, 131072, 0, 0, 131075, 1, 0, 196611, 1, 0, 196610, 1, 0, 196612, 1, 0, 262148, 1, 0, 262147, 1, 0, 131079, 2, 0, 196615, 2, 0, 262151, 2, 0)
