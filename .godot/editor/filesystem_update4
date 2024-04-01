@@ -1,0 +1,6 @@
+res://scene/Board/board.tscn
+res://scene/Tile/Tile.tscn
+res://scene/UI.gd
+res://scene/level1.tscn
+res://scene/main.tscn
+res://scene/Board/board.gd
