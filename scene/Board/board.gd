@@ -113,69 +113,27 @@ func _on_Tile_pressed(number):
 		scramble_board()
 		emit_signal('game_started')
 		return
-
-
-	var tile = value_to_grid(number)
-	empty = value_to_grid(0)
-
-	# if not clicked in row or column of the empty tile then return
-	if (tile.x != empty.x and tile.y != empty.y):
+	# check if tile clicked can actually be slid
+	if (value_to_grid(number).distance_to(empty) != 1):
 		return
-
-	var dir = Vector2(sign(tile.x - empty.x), sign(tile.y - empty.y))
-
-	var start = Vector2(min(tile.x, empty.x), min(tile.y, empty.y))
-	var end = Vector2(max(tile.x, empty.x), max(tile.y, empty.y))
-
-	# for each tile in the slide
-	for r in range(end.y, start.y - 1, -1):
-		for c in range(end.x, start.x - 1, -1):
-			if board[r][c] == 0:
-				continue
-			var object: TextureButton = get_tile_by_value(board[r][c])
-			object.slide_to((Vector2(c, r)-dir) * tile_size, slide_duration)
-			is_animating = true
-			tiles_animating += 1
-
-	# store current board state to calculat the moves made
-	var old_board = board.duplicate(true)
-
-	# clicked in same row as as empty
-	if tile.y == empty.y:
-		if dir.x == -1:
-			board[tile.y] = slide_row(board[tile.y], 1, start.x)
-		else:
-			board[tile.y] = slide_row(board[tile.y], -1, end.x)
-
-	# clicked in same column as empty
-	if tile.x == empty.x:
-		var col = []
-		for r in range(board_size):
-			col.append(board[r][tile.x])
-
-		if dir.y == -1:
-			col = slide_column(col, 1, start.y)
-		else:
-			col = slide_column(col, -1, end.y)
-
-		for r in range(board_size):
-			board[r][tile.x] = col[r]
-
-	# update moves
-	var moves_made = 0
-	for r in range(board_size):
-		for c in range(board_size):
-			if old_board[r][c] != board[r][c]:
-				moves_made += 1
-
-	move_count += moves_made - 1
-	emit_signal("moves_updated", move_count)
+	
+	var target = value_to_grid(number)
+	
+	#updates board
+	board[empty.y][empty.x] = number
+	board[target.y][target.x] = 0
+	
+	#slides 
+	get_tile_by_value(number).slide_to(empty*tile_size, slide_duration)
+	empty = target
+	
 
 	# check win
 	var is_solved = is_board_solved()
 	if is_solved:
 		game_state = GAME_STATES.WON
 		emit_signal("game_won")
+		print("won")
 
 func is_board_solvable(flat):
 	var parity = 0
@@ -266,7 +224,7 @@ func _process(_delta):
 		if (nr == -1 or nc == -1 or nr >= board_size or nc >= board_size):
 			return
 		var tile_pressed = board[nr][nc]
-		print(tile_pressed)
+		print("pressed:" + str(tile_pressed))
 		_on_Tile_pressed(tile_pressed)
 
 func slide_row(row, dir, limiter):

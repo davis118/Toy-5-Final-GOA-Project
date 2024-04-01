@@ -42,15 +42,10 @@ func set_sprite_texture(texture):
 # Slide the tile to a new position
 func slide_to(new_position, duration):
 	var tween = create_tween()
-	tween.tween_property($Sprite2D, "position", new_position, 0.2)
+	tween.tween_property(self, "global_position", new_position, duration)
 
 	# Connect the signal using connect_method() to handle the signal connection
-	tween.connect_method("tween_completed", self, "_on_tween_completed")
-
-# Tween has finished sliding
-func _on_tween_completed(object, key):
 	emit_signal("slide_completed", number)
-
 
 # Hide / Show the number of the tile
 func set_number_visible(state):
