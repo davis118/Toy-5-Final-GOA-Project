@@ -1,7 +1,11 @@
+# Godot 4+ specific ignores
+.godot/
+
 # Godot-specific ignores
 .import/
 export.cfg
-.godot/
+export_presets.cfg
+buid/
 
 # Imported translations (automatically generated from CSV files)
 *.translation
@@ -9,12 +13,8 @@ export.cfg
 # Mono-specific ignores
 .mono/
 data_*/
+mono_crash.*.json
 
 #Other
-build
-project/.import
+build/
 .DS_Store
-project/.DS_Store
-
-# MacOS system specific files
-.DS_STORE
