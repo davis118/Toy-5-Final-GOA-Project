@@ -16,5 +16,5 @@ project/.import
 .DS_Store
 project/.DS_Store
 
-# Temporary MacOS files
+# MacOS system specific files
 .DS_STORE
