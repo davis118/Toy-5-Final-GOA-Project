@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://csaw36suwp545"]
+[gd_scene load_steps=8 format=3 uid="uid://csaw36suwp545"]
 
 [ext_resource type="Texture2D" uid="uid://c35r7gy18ch5b" path="res://resources/titlelong.png" id="1_q3tf1"]
-[ext_resource type="Script" path="res://scene/UI.gd" id="1_w2vtm"]
+[ext_resource type="Script" path="res://script/UI.gd" id="1_w2vtm"]
+[ext_resource type="Script" path="res://script/1.gd" id="2_n5a56"]
+[ext_resource type="Script" path="res://script/2.gd" id="3_hqmv8"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_j2fvs"]
 
@@ -11,120 +13,121 @@ texture = SubResource("ImageTexture_j2fvs")
 [sub_resource type="Theme" id="Theme_uqsx6"]
 RichTextLabel/styles/normal = SubResource("StyleBoxTexture_6r38o")
 
-[node name="Node2D" type="Node2D"]
-
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" groups=["ui"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_w2vtm")
 
-[node name="levelmenu" type="Control" parent="UI"]
+[node name="levelmenu" type="Control" parent="."]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="CenterContainer" type="CenterContainer" parent="UI/levelmenu"]
+[node name="CenterContainer" type="CenterContainer" parent="levelmenu"]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/levelmenu/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="levelmenu/CenterContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/levelmenu/CenterContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="levelmenu/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="1" type="Button" parent="UI/levelmenu/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="1" type="Button" parent="levelmenu/CenterContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "1"
+script = ExtResource("2_n5a56")
 
-[node name="2" type="Button" parent="UI/levelmenu/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="2" type="Button" parent="levelmenu/CenterContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "2"
+script = ExtResource("3_hqmv8")
 
-[node name="3" type="Button" parent="UI/levelmenu/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="3" type="Button" parent="levelmenu/CenterContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "3"
 
-[node name="4" type="Button" parent="UI/levelmenu/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="4" type="Button" parent="levelmenu/CenterContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "4"
 
-[node name="mainmenu" type="Control" parent="UI"]
+[node name="mainmenu" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 50.0
 offset_bottom = 50.0
 
-[node name="CenterContainer" type="CenterContainer" parent="UI/mainmenu"]
+[node name="CenterContainer" type="CenterContainer" parent="mainmenu"]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/mainmenu/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="mainmenu/CenterContainer"]
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="TextureRect" type="TextureRect" parent="UI/mainmenu/CenterContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="mainmenu/CenterContainer/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_q3tf1")
 expand_mode = 5
 
-[node name="play" type="Button" parent="UI/mainmenu/CenterContainer/VBoxContainer"]
+[node name="play" type="Button" parent="mainmenu/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Play"
 
-[node name="help" type="Button" parent="UI/mainmenu/CenterContainer/VBoxContainer"]
+[node name="help" type="Button" parent="mainmenu/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Help"
 
-[node name="credits" type="Button" parent="UI/mainmenu/CenterContainer/VBoxContainer"]
+[node name="credits" type="Button" parent="mainmenu/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Credits"
 
-[node name="credits" type="Control" parent="UI"]
+[node name="credits" type="Control" parent="."]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="CenterContainer" type="CenterContainer" parent="UI/credits"]
+[node name="CenterContainer" type="CenterContainer" parent="credits"]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/credits/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="credits/CenterContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/credits/CenterContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="credits/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme = SubResource("Theme_uqsx6")
 text = "Project lead: Mateo"
 
-[node name="mainmenu" type="Button" parent="UI/credits/CenterContainer/VBoxContainer"]
+[node name="mainmenu" type="Button" parent="credits/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Main Menu"
 
-[connection signal="pressed" from="UI/levelmenu/CenterContainer/VBoxContainer/HBoxContainer/1" to="UI" method="_on__pressed"]
-[connection signal="pressed" from="UI/mainmenu/CenterContainer/VBoxContainer/play" to="UI" method="_on_play_pressed"]
-[connection signal="pressed" from="UI/mainmenu/CenterContainer/VBoxContainer/credits" to="UI" method="_on_credits_pressed"]
-[connection signal="pressed" from="UI/credits/CenterContainer/VBoxContainer/mainmenu" to="UI" method="_on_mainmenu_pressed"]
+[connection signal="pressed" from="levelmenu/CenterContainer/VBoxContainer/HBoxContainer/1" to="levelmenu/CenterContainer/VBoxContainer/HBoxContainer/1" method="_on_pressed"]
+[connection signal="pressed" from="levelmenu/CenterContainer/VBoxContainer/HBoxContainer/2" to="levelmenu/CenterContainer/VBoxContainer/HBoxContainer/2" method="_on_pressed"]
+[connection signal="pressed" from="mainmenu/CenterContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="mainmenu/CenterContainer/VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="credits/CenterContainer/VBoxContainer/mainmenu" to="." method="_on_mainmenu_pressed"]

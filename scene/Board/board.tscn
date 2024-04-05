@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://uc8erq2t18j8"]
 
-[ext_resource type="Script" path="res://scene/Board/board.gd" id="1_b3qhb"]
+[ext_resource type="Script" path="res://script/board.gd" id="1_pso8b"]
 [ext_resource type="PackedScene" uid="uid://df78j1nsb3y70" path="res://scene/Tile/Tile.tscn" id="2_xlots"]
 
 [node name="Board" type="Control"]
@@ -12,6 +12,6 @@ offset_right = -1120.0
 offset_bottom = -280.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_b3qhb")
+script = ExtResource("1_pso8b")
 tile_size = 20
 tile_scene = ExtResource("2_xlots")

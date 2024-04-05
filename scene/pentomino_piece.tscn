@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdj5rl0ttslf0"]
+
+[ext_resource type="Script" path="res://script/pentomino_piece.gd" id="1_u21gu"]
+[ext_resource type="Texture2D" uid="uid://ca346t3danj18" path="res://resources/blue.png" id="2_rxb4q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnsrx"]
+size = Vector2(8, 8)
+
+[node name="pentomino_piece" type="Area2D"]
+script = ExtResource("1_u21gu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rxb4q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tnsrx")

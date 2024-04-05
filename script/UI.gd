@@ -1,7 +1,7 @@
 extends Control
 
 #var level1 = preload("res://scene/level1.tscn")
-var level1 = preload("res://scene/Board/board.tscn")
+var levels = [preload("res://scene/Board/board.tscn"), preload("res://scene/pentomino.tscn")]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,8 +28,8 @@ func _on_mainmenu_pressed():
 	$credits.visible=false
 
 
-func _on__pressed():
-	var newlevel = level1.instantiate()
+func start_level(i):
+	var newlevel = levels[i].instantiate()
 	get_tree().get_root().add_child(newlevel)
 	$levelmenu.visible=false
 	pass # Replace with function body.

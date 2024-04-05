@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://denqkdhuwlp6h"]
+
+[ext_resource type="Script" path="res://script/pentomino_tile.gd" id="1_5h6jm"]
+[ext_resource type="PackedScene" uid="uid://cdj5rl0ttslf0" path="res://scene/pentomino_piece.tscn" id="2_442p2"]
+
+[node name="pentomino_tile" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5h6jm")
+piece_scene = ExtResource("2_442p2")
