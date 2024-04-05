@@ -14,4 +14,5 @@ func _process(delta):
 
 func _on_pressed():
 	ui.start_level(0)
+	print("uwu")
 	pass # Replace with function body.

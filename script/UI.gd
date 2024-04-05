@@ -1,7 +1,7 @@
 extends Control
 
 #var level1 = preload("res://scene/level1.tscn")
-var levels = [preload("res://scene/Board/board.tscn"), preload("res://scene/pentomino.tscn")]
+var levels = [preload("res://scene/Board/board.tscn"), preload("res://scene/pentomino_board.tscn")]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dm7ascpw8bxbl"]
+[gd_scene load_steps=8 format=3 uid="uid://dm7ascpw8bxbl"]
 
 [ext_resource type="Texture2D" uid="uid://c35r7gy18ch5b" path="res://resources/titlelong.png" id="1_q3tf1"]
 [ext_resource type="Script" path="res://script/UI.gd" id="1_w2vtm"]
+[ext_resource type="Script" path="res://script/1.gd" id="2_56lqa"]
+[ext_resource type="Script" path="res://script/2.gd" id="3_illsn"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_j2fvs"]
 
@@ -13,7 +15,7 @@ RichTextLabel/styles/normal = SubResource("StyleBoxTexture_6r38o")
 
 [node name="Node2D" type="Node2D"]
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." groups=["ui"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -43,12 +45,14 @@ custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "1"
+script = ExtResource("2_56lqa")
 
 [node name="2" type="Button" parent="UI/levelmenu/CenterContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "2"
+script = ExtResource("3_illsn")
 
 [node name="3" type="Button" parent="UI/levelmenu/CenterContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 200)
@@ -124,7 +128,8 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Main Menu"
 
-[connection signal="pressed" from="UI/levelmenu/CenterContainer/VBoxContainer/HBoxContainer/1" to="UI" method="_on__pressed"]
+[connection signal="pressed" from="UI/levelmenu/CenterContainer/VBoxContainer/HBoxContainer/1" to="UI/levelmenu/CenterContainer/VBoxContainer/HBoxContainer/1" method="_on_pressed"]
+[connection signal="pressed" from="UI/levelmenu/CenterContainer/VBoxContainer/HBoxContainer/2" to="UI/levelmenu/CenterContainer/VBoxContainer/HBoxContainer/2" method="_on_pressed"]
 [connection signal="pressed" from="UI/mainmenu/CenterContainer/VBoxContainer/play" to="UI" method="_on_play_pressed"]
 [connection signal="pressed" from="UI/mainmenu/CenterContainer/VBoxContainer/credits" to="UI" method="_on_credits_pressed"]
 [connection signal="pressed" from="UI/credits/CenterContainer/VBoxContainer/mainmenu" to="UI" method="_on_mainmenu_pressed"]
