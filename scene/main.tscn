@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://csaw36suwp545"]
+[gd_scene load_steps=9 format=3 uid="uid://csaw36suwp545"]
 
 [ext_resource type="Texture2D" uid="uid://c35r7gy18ch5b" path="res://resources/titlelong.png" id="1_q3tf1"]
 [ext_resource type="Script" path="res://script/UI.gd" id="1_w2vtm"]
 [ext_resource type="Script" path="res://script/1.gd" id="2_n5a56"]
 [ext_resource type="Script" path="res://script/2.gd" id="3_hqmv8"]
+[ext_resource type="AudioStream" uid="uid://bpld83mbmjgym" path="res://assets/sounds/button.mp3" id="5_scmfa"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_j2fvs"]
 
@@ -125,6 +126,9 @@ text = "Project lead: Mateo"
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Main Menu"
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_scmfa")
 
 [connection signal="pressed" from="levelmenu/CenterContainer/VBoxContainer/HBoxContainer/1" to="levelmenu/CenterContainer/VBoxContainer/HBoxContainer/1" method="_on_pressed"]
 [connection signal="pressed" from="levelmenu/CenterContainer/VBoxContainer/HBoxContainer/2" to="levelmenu/CenterContainer/VBoxContainer/HBoxContainer/2" method="_on_pressed"]
