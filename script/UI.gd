@@ -30,6 +30,7 @@ func _on_mainmenu_pressed():
 
 func start_level(i):
 	var newlevel = levels[i].instantiate()
+	newlevel.level_won.connect(_on_play_pressed)
 	get_tree().get_root().add_child(newlevel)
 	$levelmenu.visible=false
 	pass # Replace with function body.

@@ -22,7 +22,7 @@ enum GAME_STATES {
 var game_state = GAME_STATES.NOT_STARTED
 
 signal game_started
-signal game_won
+signal level_won
 signal moves_updated
 
 func gen_board():
@@ -119,7 +119,7 @@ func _on_Tile_pressed(number):
 	var is_solved = is_board_solved()
 	if is_solved:
 		game_state = GAME_STATES.WON
-		emit_signal("game_won")
+		emit_signal("level_won")
 		print("won")
 
 func check_solvable(temp_board: Array):

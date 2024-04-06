@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bw2l7rt0mi2c"]
+[gd_scene load_steps=4 format=3 uid="uid://bw2l7rt0mi2c"]
 
 [ext_resource type="Script" path="res://script/pentomino_board.gd" id="1_k6ydk"]
 [ext_resource type="PackedScene" uid="uid://denqkdhuwlp6h" path="res://scene/pentomino_tile.tscn" id="2_k71j1"]
+[ext_resource type="Texture2D" uid="uid://bljmf8ghkfiiy" path="res://resources/placeholder-bg.png" id="3_xdics"]
 
 [node name="pentomino" type="Control"]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_k6ydk")
 tile_scene = ExtResource("2_k71j1")
 
@@ -19,10 +21,22 @@ offset_left = 50.0
 offset_top = 830.0
 offset_right = 1870.0
 offset_bottom = 1030.0
+mouse_filter = 2
 horizontal_scroll_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 200
 alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 576.0
+offset_top = 80.0
+offset_right = 1476.0
+offset_bottom = 880.0
+mouse_filter = 2
+texture = ExtResource("3_xdics")
