@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://uc8erq2t18j8"]
+[gd_scene load_steps=4 format=3 uid="uid://uc8erq2t18j8"]
 
 [ext_resource type="Script" path="res://script/board.gd" id="1_pso8b"]
 [ext_resource type="PackedScene" uid="uid://df78j1nsb3y70" path="res://scene/Tile/Tile.tscn" id="2_xlots"]
+[ext_resource type="AudioStream" uid="uid://cc47pxhb5571b" path="res://assets/sounds/slide.mp3" id="3_eeb6a"]
 
 [node name="Board" type="Control"]
 layout_mode = 3
@@ -15,3 +16,10 @@ grow_vertical = 2
 script = ExtResource("1_pso8b")
 tile_size = 20
 tile_scene = ExtResource("2_xlots")
+
+[node name="SlideSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_eeb6a")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
