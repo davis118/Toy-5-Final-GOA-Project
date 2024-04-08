@@ -28,6 +28,10 @@ shapes/collision/shape_color=Color(0.909804, 0, 0.72549, 0.419608)
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 
+[dotnet]
+
+project/assembly_name="Toy5"
+
 [input]
 
 move_left={

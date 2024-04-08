@@ -5,6 +5,9 @@ extends Control
 @export var tile_scene: PackedScene 
 @export var slide_duration = 0.15
 
+@onready var slide_sound = $SlideSound
+@onready var timer = $Timer
+
 var board = []
 var tiles = []
 var empty = Vector2()
@@ -110,10 +113,16 @@ func _on_Tile_pressed(number):
 	board[empty.y][empty.x] = number
 	board[target.y][target.x] = 0
 	
-	#slides 
+	#slides
+	
+	# slide sound
+	slide_sound.play()
+	timer.wait_time = slide_duration
+	timer.start()
+	
+	# slide
 	get_tile_by_coords(number).slide_to(empty*tile_size, slide_duration)
 	empty = target
-	
 
 	# check win
 	var is_solved = is_board_solved()
@@ -234,3 +243,7 @@ func update_background_texture(texture):
 	for tile in tiles:
 		tile.set_sprite_texture(texture)
 		tile.update_board_size(board_size, tile_size)
+
+
+func _on_timer_timeout():
+	slide_sound.stop()
