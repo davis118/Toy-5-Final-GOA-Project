@@ -3,18 +3,22 @@ extends Control
 @export var tile_scene: PackedScene
 
 #data for the board
-const width = 9
-const height = 8
+const width = 11
+const height = 11
+const tile_size = 80
 
 var solution = [
-	[0,1,1,0,0,0,1,1,0],
-	[1,0,1,1,1,1,1,0,1],
-	[1,0,1,1,1,1,1,0,1],
-	[1,1,1,1,1,1,1,1,1],
-	[1,1,1,1,1,1,1,1,1],
-	[1,1,1,1,1,1,1,1,1],
-	[0,1,1,1,1,1,1,1,0],
-	[0,0,1,1,1,1,1,0,0]
+	[0,0,0,0,1,1,1,0,0,0,0],
+	[0,0,0,0,1,1,1,0,0,0,0],
+	[0,0,0,0,1,1,1,0,0,0,0],
+	[0,0,0,1,1,1,1,1,0,0,0],
+	[1,1,1,1,1,1,1,1,1,1,1],
+	[1,1,1,1,1,0,1,1,1,1,1],
+	[1,1,1,1,1,1,1,1,1,1,1],
+	[0,0,0,1,1,1,1,1,0,0,0],
+	[0,0,0,0,1,1,1,0,0,0,0],
+	[0,0,0,0,1,1,1,0,0,0,0],
+	[0,0,0,0,1,1,1,0,0,0,0],
 ]
 
 var filled = []
@@ -75,11 +79,11 @@ func tilepop(tile_data, pos, pickoffset, id):
 func checkwin(tile_data, pos, id):
 	#i love sphagetti mamma mia!
 	print("tiledata: " , str(tile_data))
-	var corner = ((pos-start-Vector2(50,50))/100).round()
+	var corner = ((pos-start-Vector2(tile_size/2,tile_size/2))/tile_size).round()
 	filled[id]=[]
 	for i in tile_data:
 		filled[id].append(i+corner)
-	print(filled)
+	#print(filled)
 	var tempfilled = []
 	for i in range(height):
 		tempfilled.append([])
@@ -87,7 +91,9 @@ func checkwin(tile_data, pos, id):
 			tempfilled[i].append(0)
 	for i in filled:
 		for j in i:
-			tempfilled[j.y][j.x]=1
+			if 0<=j.x and j.x<width and 0<=j.y and j.y<height:
+				tempfilled[j.y][j.x]=1
+	print(tempfilled)
 	var solved = true
 	for i in range(height):
 		for j in range(width):

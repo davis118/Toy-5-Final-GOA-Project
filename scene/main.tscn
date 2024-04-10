@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://csaw36suwp545"]
+[gd_scene load_steps=12 format=3 uid="uid://csaw36suwp545"]
 
 [ext_resource type="Texture2D" uid="uid://c35r7gy18ch5b" path="res://resources/titlelong.png" id="1_q3tf1"]
 [ext_resource type="Script" path="res://script/UI.gd" id="1_w2vtm"]
-[ext_resource type="Script" path="res://script/1.gd" id="2_n5a56"]
-[ext_resource type="Script" path="res://script/2.gd" id="3_hqmv8"]
+[ext_resource type="Texture2D" uid="uid://c2ipe4smo26ov" path="res://resources/button2.png" id="3_y1hj4"]
+[ext_resource type="Script" path="res://scene/level0(slide).gd" id="4_p023w"]
+[ext_resource type="Texture2D" uid="uid://crit1hicl5a4" path="res://resources/box.png" id="4_wi1wj"]
+[ext_resource type="Texture2D" uid="uid://c7v1ixr1gw2kw" path="res://resources/button1.png" id="5_lu2ed"]
 [ext_resource type="AudioStream" uid="uid://bpld83mbmjgym" path="res://assets/sounds/button.mp3" id="5_scmfa"]
+[ext_resource type="Script" path="res://scene/level1(pentomino).gd" id="6_4g2vo"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_j2fvs"]
 
@@ -27,43 +30,33 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="CenterContainer" type="CenterContainer" parent="levelmenu"]
+[node name="TextureRect" type="TextureRect" parent="levelmenu"]
+texture_filter = 1
 layout_mode = 0
-offset_right = 1920.0
+offset_left = 420.0
+offset_right = 1500.0
 offset_bottom = 1080.0
+texture = ExtResource("4_wi1wj")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="levelmenu/CenterContainer"]
-layout_mode = 2
+[node name="level0(slide)" type="TextureButton" parent="levelmenu"]
+layout_mode = 0
+offset_left = 1189.0
+offset_top = 717.0
+offset_right = 1239.0
+offset_bottom = 767.0
+scale = Vector2(2.1, 2.1)
+texture_normal = ExtResource("3_y1hj4")
+script = ExtResource("4_p023w")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="levelmenu/CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 50
-
-[node name="1" type="Button" parent="levelmenu/CenterContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "1"
-script = ExtResource("2_n5a56")
-
-[node name="2" type="Button" parent="levelmenu/CenterContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "2"
-script = ExtResource("3_hqmv8")
-
-[node name="3" type="Button" parent="levelmenu/CenterContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "3"
-
-[node name="4" type="Button" parent="levelmenu/CenterContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "4"
+[node name="level1(pentomino)" type="TextureButton" parent="levelmenu"]
+layout_mode = 0
+offset_left = 635.0
+offset_top = 273.0
+offset_right = 685.0
+offset_bottom = 323.0
+scale = Vector2(2.1, 2.1)
+texture_normal = ExtResource("5_lu2ed")
+script = ExtResource("6_4g2vo")
 
 [node name="mainmenu" type="Control" parent="."]
 anchors_preset = 0
@@ -130,8 +123,8 @@ text = "Main Menu"
 [node name="ButtonSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_scmfa")
 
-[connection signal="pressed" from="levelmenu/CenterContainer/VBoxContainer/HBoxContainer/1" to="levelmenu/CenterContainer/VBoxContainer/HBoxContainer/1" method="_on_pressed"]
-[connection signal="pressed" from="levelmenu/CenterContainer/VBoxContainer/HBoxContainer/2" to="levelmenu/CenterContainer/VBoxContainer/HBoxContainer/2" method="_on_pressed"]
+[connection signal="pressed" from="levelmenu/level0(slide)" to="levelmenu/level0(slide)" method="_on_pressed"]
+[connection signal="pressed" from="levelmenu/level1(pentomino)" to="levelmenu/level1(pentomino)" method="_on_pressed"]
 [connection signal="pressed" from="mainmenu/CenterContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="mainmenu/CenterContainer/VBoxContainer/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="credits/CenterContainer/VBoxContainer/mainmenu" to="." method="_on_mainmenu_pressed"]

@@ -4,7 +4,7 @@ const FOLLOW_SPEED=25
 
 var tile_data
 var pieces = []
-var tile_size = 100
+var tile_size = 80
 var moving = false
 var pickoffset
 var placed
