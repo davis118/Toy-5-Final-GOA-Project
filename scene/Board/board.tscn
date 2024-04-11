@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://uc8erq2t18j8"]
+[gd_scene load_steps=5 format=3 uid="uid://uc8erq2t18j8"]
 
 [ext_resource type="Script" path="res://script/board.gd" id="1_pso8b"]
 [ext_resource type="PackedScene" uid="uid://df78j1nsb3y70" path="res://scene/Tile/Tile.tscn" id="2_xlots"]
 [ext_resource type="AudioStream" uid="uid://cc47pxhb5571b" path="res://assets/sounds/slide.mp3" id="3_eeb6a"]
+[ext_resource type="Texture2D" uid="uid://cgnnah2yijv0q" path="res://resources/slidebg.png" id="4_ncfp2"]
 
 [node name="Board" type="Control"]
 layout_mode = 3
@@ -21,5 +22,13 @@ tile_scene = ExtResource("2_xlots")
 stream = ExtResource("3_eeb6a")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(4.8, 4.8)
+texture = ExtResource("4_ncfp2")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

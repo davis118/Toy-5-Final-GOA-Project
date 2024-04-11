@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://df78j1nsb3y70"]
 
 [ext_resource type="Script" path="res://script/Tile.gd" id="1_4npck"]
-[ext_resource type="Texture2D" uid="uid://dvbeo0u5xb8ge" path="res://resources/SCompleted.png" id="2_0jt2l"]
+[ext_resource type="Texture2D" uid="uid://pems3srk40id" path="res://resources/completed.png" id="2_0d20g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62dh5"]
 draw_center = false
@@ -17,7 +17,8 @@ offset_bottom = 56.0
 script = ExtResource("1_4npck")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_0jt2l")
+texture_filter = 3
+texture = ExtResource("2_0d20g")
 centered = false
 hframes = 4
 vframes = 4
