@@ -29,7 +29,3 @@ func _on_input_event(viewport, event, shape_idx):
 		if event.button_index==1:
 			if event.pressed:
 				emit_signal("picked")
-		
-		
-		
-	pass # Replace with function body.

@@ -16,6 +16,8 @@ signal checkwin(tile_data: Array, pos: Vector2, id)
 
 @export var piece_scene: PackedScene
 
+@onready var drop_sound = $DropSound
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -46,6 +48,7 @@ func set_texture(texture):
 func _process(delta):
 	if moving:
 		if not Input.is_action_pressed("left_mouse_button"):
+			drop_sound.play()
 			emit_signal("checkwin", tile_data, global_position, id)
 			moving=false
 		else:

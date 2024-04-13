@@ -4,6 +4,7 @@ extends Control
 var levels = [preload("res://scene/Board/board.tscn"), preload("res://scene/pentomino_board.tscn")]
 
 @onready var button_sound = $ButtonSound
+@onready var win_sound = $WinSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,6 +24,10 @@ func _on_credits_pressed():
 	$credits.visible=true
 	button_sound.play()
 
+func _on_level_won():
+	_on_play_pressed()
+	win_sound.play()
+
 func _on_mainmenu_pressed():
 	$mainmenu.visible=true
 	$credits.visible=false
@@ -31,7 +36,7 @@ func _on_mainmenu_pressed():
 func start_level(i):
 	button_sound.play()
 	var newlevel = levels[i].instantiate()
-	newlevel.level_won.connect(_on_play_pressed)
+	newlevel.level_won.connect(_on_level_won)
 	get_tree().get_root().add_child(newlevel)
 	$levelmenu.visible=false
 	pass # Replace with function body.

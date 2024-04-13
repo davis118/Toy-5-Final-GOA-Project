@@ -27,6 +27,7 @@ var tiles = []
 var previewtiles = []
 
 @onready var start = $TextureRect.position
+@onready var drop_sound = $DropSound
 
 signal level_won()
 
@@ -54,8 +55,6 @@ func _ready():
 		$ScrollContainer/HBoxContainer.add_child(centercontainer)
 		centercontainer.add_child(previewtile)
 		centercontainer.custom_minimum_size = Vector2(50, 200)
-	
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -78,6 +77,7 @@ func tilepop(tile_data, pos, pickoffset, id):
 
 func checkwin(tile_data, pos, id):
 	#i love sphagetti mamma mia!
+	# thats good for u
 	print("tiledata: " , str(tile_data))
 	var corner = ((pos-start-Vector2(tile_size/2,tile_size/2))/tile_size).round()
 	filled[id]=[]

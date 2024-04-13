@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://csaw36suwp545"]
+[gd_scene load_steps=13 format=3 uid="uid://csaw36suwp545"]
 
 [ext_resource type="Texture2D" uid="uid://c35r7gy18ch5b" path="res://resources/titlelong.png" id="1_q3tf1"]
 [ext_resource type="Script" path="res://script/UI.gd" id="1_w2vtm"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c7v1ixr1gw2kw" path="res://resources/button1.png" id="5_lu2ed"]
 [ext_resource type="AudioStream" uid="uid://bpld83mbmjgym" path="res://assets/sounds/button.mp3" id="5_scmfa"]
 [ext_resource type="Script" path="res://scene/level1(pentomino).gd" id="6_4g2vo"]
+[ext_resource type="AudioStream" uid="uid://c17xqnr4grtqg" path="res://assets/sounds/win music.wav" id="9_difsk"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_j2fvs"]
 
@@ -122,6 +123,9 @@ text = "Main Menu"
 
 [node name="ButtonSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_scmfa")
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_difsk")
 
 [connection signal="pressed" from="levelmenu/level0(slide)" to="levelmenu/level0(slide)" method="_on_pressed"]
 [connection signal="pressed" from="levelmenu/level1(pentomino)" to="levelmenu/level1(pentomino)" method="_on_pressed"]

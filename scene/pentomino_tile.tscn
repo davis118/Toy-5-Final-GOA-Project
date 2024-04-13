@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://denqkdhuwlp6h"]
+[gd_scene load_steps=4 format=3 uid="uid://denqkdhuwlp6h"]
 
 [ext_resource type="Script" path="res://script/pentomino_tile.gd" id="1_5h6jm"]
 [ext_resource type="PackedScene" uid="uid://cdj5rl0ttslf0" path="res://scene/pentomino_piece.tscn" id="2_442p2"]
+[ext_resource type="AudioStream" uid="uid://bpld83mbmjgym" path="res://assets/sounds/button.mp3" id="3_yic10"]
 
 [node name="pentomino_tile" type="Control"]
 layout_mode = 3
@@ -17,5 +18,8 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_5h6jm")
 piece_scene = ExtResource("2_442p2")
+
+[node name="DropSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yic10")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
