@@ -1,6 +1,5 @@
-[gd_scene load_steps=13 format=3 uid="uid://csaw36suwp545"]
+[gd_scene load_steps=15 format=3 uid="uid://csaw36suwp545"]
 
-[ext_resource type="Texture2D" uid="uid://c35r7gy18ch5b" path="res://resources/titlelong.png" id="1_q3tf1"]
 [ext_resource type="Script" path="res://script/UI.gd" id="1_w2vtm"]
 [ext_resource type="Texture2D" uid="uid://c2ipe4smo26ov" path="res://resources/button2.png" id="3_y1hj4"]
 [ext_resource type="Script" path="res://scene/level0(slide).gd" id="4_p023w"]
@@ -8,15 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://c7v1ixr1gw2kw" path="res://resources/button1.png" id="5_lu2ed"]
 [ext_resource type="AudioStream" uid="uid://bpld83mbmjgym" path="res://assets/sounds/button.mp3" id="5_scmfa"]
 [ext_resource type="Script" path="res://scene/level1(pentomino).gd" id="6_4g2vo"]
+[ext_resource type="Texture2D" uid="uid://b7nu5yfcpobcb" path="res://resources/start.png" id="7_5nk03"]
+[ext_resource type="Texture2D" uid="uid://c61bageq407o" path="res://resources/key.png" id="7_wvg6d"]
+[ext_resource type="Texture2D" uid="uid://kcoe3ewh1hhg" path="res://resources/startbutton.PNG" id="8_ysm48"]
+[ext_resource type="Texture2D" uid="uid://d0nycbo14316y" path="res://resources/credits.PNG" id="9_d5chs"]
 [ext_resource type="AudioStream" uid="uid://c17xqnr4grtqg" path="res://assets/sounds/win music.wav" id="9_difsk"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_j2fvs"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6r38o"]
-texture = SubResource("ImageTexture_j2fvs")
-
-[sub_resource type="Theme" id="Theme_uqsx6"]
-RichTextLabel/styles/normal = SubResource("StyleBoxTexture_6r38o")
+[ext_resource type="Texture2D" uid="uid://bs8d4ew172jae" path="res://resources/help.PNG" id="10_x2q1m"]
+[ext_resource type="Texture2D" uid="uid://b4dj1oa721y2j" path="res://resources/creditspage.PNG" id="11_06mcc"]
 
 [node name="UI" type="Control" groups=["ui"]]
 layout_mode = 3
@@ -59,42 +56,55 @@ scale = Vector2(2.1, 2.1)
 texture_normal = ExtResource("5_lu2ed")
 script = ExtResource("6_4g2vo")
 
+[node name="key" type="TextureButton" parent="levelmenu"]
+visible = false
+layout_mode = 0
+offset_left = 933.0
+offset_top = 834.0
+offset_right = 1134.0
+offset_bottom = 1085.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("7_wvg6d")
+
 [node name="mainmenu" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 50.0
 offset_bottom = 50.0
 
-[node name="CenterContainer" type="CenterContainer" parent="mainmenu"]
-layout_mode = 0
-offset_right = 1920.0
+[node name="TextureRect" type="TextureRect" parent="mainmenu"]
+layout_mode = 2
+offset_left = 420.0
+offset_right = 1500.0
 offset_bottom = 1080.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="mainmenu/CenterContainer"]
-layout_mode = 2
-theme_override_constants/separation = 50
-
-[node name="TextureRect" type="TextureRect" parent="mainmenu/CenterContainer/VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_q3tf1")
+texture = ExtResource("7_5nk03")
 expand_mode = 5
 
-[node name="play" type="Button" parent="mainmenu/CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(600, 150)
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Play"
+[node name="startbutton" type="TextureButton" parent="mainmenu"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 900.0
+offset_right = 532.0
+offset_bottom = 972.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("8_ysm48")
 
-[node name="help" type="Button" parent="mainmenu/CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(600, 150)
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Help"
+[node name="creditsbutton" type="TextureButton" parent="mainmenu"]
+layout_mode = 0
+offset_left = 1276.0
+offset_top = 900.0
+offset_right = 1388.0
+offset_bottom = 972.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("9_d5chs")
 
-[node name="credits" type="Button" parent="mainmenu/CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(600, 150)
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Credits"
+[node name="helpbutton" type="TextureButton" parent="mainmenu"]
+layout_mode = 0
+offset_left = 848.0
+offset_top = 900.0
+offset_right = 960.0
+offset_bottom = 972.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("10_x2q1m")
 
 [node name="credits" type="Control" parent="."]
 visible = false
@@ -110,11 +120,11 @@ offset_bottom = 1080.0
 [node name="VBoxContainer" type="VBoxContainer" parent="credits/CenterContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="credits/CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect" type="TextureRect" parent="credits/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1074, 768)
 layout_mode = 2
-theme = SubResource("Theme_uqsx6")
-text = "Project lead: Mateo"
+size_flags_vertical = 3
+texture = ExtResource("11_06mcc")
 
 [node name="mainmenu" type="Button" parent="credits/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -127,8 +137,25 @@ stream = ExtResource("5_scmfa")
 [node name="WinSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_difsk")
 
+[node name="winmenu" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="winmenu"]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 368.0
+offset_right = 575.0
+offset_bottom = 391.0
+scale = Vector2(10, 10)
+text = "gg, you win
+"
+
 [connection signal="pressed" from="levelmenu/level0(slide)" to="levelmenu/level0(slide)" method="_on_pressed"]
 [connection signal="pressed" from="levelmenu/level1(pentomino)" to="levelmenu/level1(pentomino)" method="_on_pressed"]
-[connection signal="pressed" from="mainmenu/CenterContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="mainmenu/CenterContainer/VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="levelmenu/key" to="." method="_on_key_pressed"]
+[connection signal="pressed" from="mainmenu/startbutton" to="." method="_on_startbutton_pressed"]
+[connection signal="pressed" from="mainmenu/creditsbutton" to="." method="_on_creditsbutton_pressed"]
 [connection signal="pressed" from="credits/CenterContainer/VBoxContainer/mainmenu" to="." method="_on_mainmenu_pressed"]

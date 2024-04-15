@@ -128,8 +128,9 @@ func _on_Tile_pressed(number):
 	var is_solved = is_board_solved()
 	if is_solved:
 		game_state = GAME_STATES.WON
-		emit_signal("level_won")
+		emit_signal("level_won",0)
 		print("won")
+		queue_free()
 
 func check_solvable(temp_board: Array):
 	var inversioncounter = 0

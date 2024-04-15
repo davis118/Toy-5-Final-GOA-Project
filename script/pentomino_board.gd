@@ -2,6 +2,7 @@ extends Control
 
 @export var tile_scene: PackedScene
 
+
 #data for the board
 const width = 11
 const height = 11
@@ -101,5 +102,5 @@ func checkwin(tile_data, pos, id):
 				solved = false
 	if solved:
 		print("you won")
-		emit_signal("level_won")
+		emit_signal("level_won",1)
 		queue_free()
